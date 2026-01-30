@@ -10,7 +10,7 @@ Upload PDFs, and the system can answer questions based on the document's content
 - Upload and process PDF documents.
 - Split PDFs into manageable chunks for semantic search.
 - Generate embeddings using **Google Gemini**.
-- In-memory vector store for fast retrieval.
+- Mongodb vector store for persist storage.
 - Ask questions with RAG — get answers based on document excerpts.
 - Display relevant chunks and similarity scores.
 - 100% free — no Anthropic/Claude or paid services required.
@@ -30,7 +30,7 @@ Upload PDFs, and the system can answer questions based on the document's content
 - **Multer** – File uploads handling.
 - **pdf-parse** – Extract text from PDFs.
 - **Google Generative AI (Gemini)** – Text embeddings & answers.
-- **In-memory Vector Store** – Stores embeddings for semantic search.
+- **Mongodb Vector Store** – Stores embeddings for semantic search.
 
 ---
 
@@ -38,20 +38,20 @@ Upload PDFs, and the system can answer questions based on the document's content
 ```bash
 CHAT_WITH_DOCUMENT/
 ├── backend/
-│   ├── package.json          # ✅ Updated (no Anthropic!)
-│   ├── .env                  # ⬅️ Only Google API key (DO NOT PUSH)
-│   ├── server.js             # ✅ 100% Gemini
+│   ├── package.json      
+│   ├── .env                
+│   ├── server.js      
 │   └── utils/
-│       ├── chunker.js        # ✅ Same as before
-│       ├── embeddings.js     # ✅ Gemini embeddings
-│       └── vectorStore.js    # ✅ Same as before
+│       ├── chunker.js    
+│       ├── embeddings.js    
+│       └── vectorStore.js(For using in-memory vector store)   
 └── frontend/
     ├── package.json          
-    ├── .env                  # ⬅️ DO NOT PUSH
+    ├── .env            
     └── src/
-        ├── App.js            # ✅ Updated UI
+        ├── App.js    
         ├── index.js          
-        └── index.css         # ✅ Added FREE badge
+        └── index.css       
 ```
 
 

@@ -98,49 +98,11 @@ function cosineSimilarity(vecA, vecB) {
 /**
  * Get embedding model info
  */
-function getModelInfo(model = 'gemini-embedding-001') {
-  const models = {
-    'gemini-embedding-001': {
-      dimensions: 768,
-      cost: 'Free (with rate limits)',
-      description: 'Latest Gemini embedding model - high quality, efficient',
-      maxTokens: 2048,
-      provider: 'Google'
-    },
-    'embedding-001': {
-      dimensions: 768,
-      cost: 'Free (with rate limits)',
-      description: 'Previous generation Gemini embeddings',
-      maxTokens: 2048,
-      provider: 'Google'
-    }
-  };
 
-  return models[model] || models['gemini-embedding-001'];
-}
-
-/**
- * Test embedding generation
- */
-async function testEmbeddings() {
-  try {
-    console.log('🧪 Testing Gemini embeddings...');
-    const testText = 'This is a test sentence for embedding generation.';
-    const embedding = await generateSingleEmbedding(testText);
-    console.log('✅ Test successful!');
-    console.log(`   Dimensions: ${embedding.length}`);
-    console.log(`   Sample values: [${embedding.slice(0, 5).map(v => v.toFixed(4)).join(', ')}...]`);
-    return true;
-  } catch (error) {
-    console.error('❌ Test failed:', error.message);
-    return false;
-  }
-}
 
 module.exports = {
   generateEmbeddings,
   generateSingleEmbedding,
   cosineSimilarity,
-  getModelInfo,
-  testEmbeddings
+  
 };
